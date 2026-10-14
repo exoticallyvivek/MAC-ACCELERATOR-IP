@@ -1,0 +1,225 @@
+
+Power Net Detected:
+        Voltage	    Name
+             0V	    VSS
+           1.1V	    VDD
+Using Power View: HOLD_VIEW.
+
+Begin Power Analysis
+
+             0V	    VSS
+           1.1V	    VDD
+
+Warning:
+  There are 2 power/gnd nets that are not connected
+VSS VDD ...
+Use 'globalNetConnect' to define rail connections.
+** WARN:  (VOLTUS_POWR-2035): There are 2 power/gnd nets that are not connected
+VSS VDD ...
+Use 'globalNetConnect' to define rail connections.
+
+
+
+Begin Processing Timing Library for Power Calculation
+
+Begin Processing Timing Library for Power Calculation
+
+
+
+Begin Processing Power Net/Grid for Power Calculation
+
+Ended Processing Power Net/Grid for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=2139.39MB/3907.10MB/2139.39MB)
+
+Begin Processing Timing Window Data for Power Calculation
+
+ACLK(100MHz) CK: assigning clock ACLK to net ACLK
+Ended Processing Timing Window Data for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=2139.75MB/3907.10MB/2139.75MB)
+
+Begin Processing User Attributes
+
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=2139.75MB/3907.10MB/2139.75MB)
+
+Begin Processing Signal Activity
+
+
+Starting Levelizing
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT)
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 10%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 20%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 30%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 40%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 50%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 60%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 70%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 80%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 90%
+
+Finished Levelizing
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT)
+
+Starting Activity Propagation
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT)
+** INFO:  (VOLTUS_POWR-1356): No default input activity has been set. Defaulting to 0.2.
+Use 'set_default_switching_activity -input_activity' command to change the default activity value.
+
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 10%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 20%
+
+Finished Activity Propagation
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT)
+Ended Processing Signal Activity: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=2139.75MB/3907.10MB/2139.75MB)
+
+Begin Power Computation
+
+      ----------------------------------------------------------
+      # of cell(s) missing both power/leakage table: 0
+      # of cell(s) missing power table: 0
+      # of cell(s) missing leakage table: 0
+      ----------------------------------------------------------
+
+
+
+Starting Calculating power
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT)
+ ... Calculating switching power
+  instance u_mac_array/u_mac3/u_wl3/FE_PHC119_l2_c0_3 is not connected to
+any rail
+  instance u_mac_array/u_mac1/u_wl3/csa_l2_0/\csa_bits[2].fa
+/FE_PHC118_l1_c0_1 is not connected to any rail
+  instance u_mac_array/u_mac2/u_wl3/csa_l2_0/\csa_bits[2].fa
+/FE_PHC117_l1_c0_1 is not connected to any rail
+  instance u_mac_array/u_mac1/u_wl3/FE_PHC116_l2_c0_3 is not connected to
+any rail
+  instance u_mac_array/u_mac2/u_wl3/FE_PHC115_l2_c0_3 is not connected to
+any rail
+  only first five unconnected instances are listed...
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 10%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 20%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 30%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 40%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 50%
+ ... Calculating internal and leakage power
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 60%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 70%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 80%
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT): 90%
+
+Finished Calculating power
+2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT)
+      # of MSMV cell(s) missing power_level: 0
+Ended Power Computation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=2141.30MB/3915.10MB/2141.30MB)
+
+Begin Processing User Attributes
+
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=2141.30MB/3915.10MB/2141.30MB)
+
+Ended Power Analysis: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=2141.30MB/3915.10MB/2141.30MB)
+
+Begin Boundary Leakage Calculation
+Ended Boundary Leakage Calculation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=2141.30MB/3915.10MB/2141.30MB)
+Begin Static Power Report Generation
+*----------------------------------------------------------------------------------------
+*	Innovus 21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2026-Oct-13 18:32:55 (2026-Oct-13 13:02:55 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: mac_system_top
+*
+*	Liberty Libraries used:
+*	        HOLD_VIEW: /home/install/FOUNDRY/digital/90nm/dig/lib/fast.lib
+*
+*	Parasitic Files used:
+*
+*       Power View : HOLD_VIEW
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs
+*
+*       report_power
+*
+-----------------------------------------------------------------------------------------
+*
+
+
+
+Total Power
+-----------------------------------------------------------------------------------------
+Total Internal Power:        7.85702470 	   75.7512%
+Total Switching Power:       1.71995330 	   16.5824%
+Total Leakage Power:         0.79517247 	    7.6664%
+Total Power:                10.37215048
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                         6.378      0.2921      0.4483       7.119       68.63
+Macro                                  0           0           0           0           0
+IO                                     0           0           0           0           0
+Combinational                      1.192       0.786      0.3361       2.314       22.31
+Clock (Combinational)             0.2863      0.6418     0.01078      0.9389       9.052
+Clock (Sequential)                     0           0           0           0           0
+-----------------------------------------------------------------------------------------
+Total                              7.857        1.72      0.7952       10.37         100
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Default                   1.1      7.857        1.72      0.7952       10.37         100
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+ACLK                              0.2863      0.6418     0.01078      0.9389       9.052
+-----------------------------------------------------------------------------------------
+Total                             0.2863      0.6418     0.01078      0.9389       9.052
+-----------------------------------------------------------------------------------------
+Clock: ACLK
+Clock Period: 0.010000 usec 
+Clock Toggle Rate:   200.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+ 
+ 
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*              Highest Average Power:       CTS_ccl_a_buf_00003 (BUFX8):          0.02851
+*              Highest Leakage Power:       CTS_ccl_a_buf_00025 (BUFX8):        0.0003079
+*                Total Cap:      8.26453e-11 F
+*                Total instances in design:  6554
+*                Total instances in design with no power:     0
+*                Total instances in design with no activty:     0
+
+*                Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+ 
+** INFO:  (VOLTUS_POWR-3465): There are 0 decaps and 0 fillers in the design
+
+Ended Static Power Report Generation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=2143.10MB/3915.10MB/2143.10MB)
+

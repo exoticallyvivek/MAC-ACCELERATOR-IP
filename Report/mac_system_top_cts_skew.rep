@@ -1,0 +1,314 @@
+Clock tree timing engine global stage delay update for DC_SETUP:setup.early...
+Clock tree timing engine global stage delay update for DC_SETUP:setup.early done. (took cpu=0:00:00.1 real=0:00:00.1)
+Clock tree timing engine global stage delay update for DC_SETUP:setup.late...
+Clock tree timing engine global stage delay update for DC_SETUP:setup.late done. (took cpu=0:00:00.0 real=0:00:00.0)
+Clock tree timing engine global stage delay update for DC_HOLD:hold.early...
+Clock tree timing engine global stage delay update for DC_HOLD:hold.early done. (took cpu=0:00:00.0 real=0:00:00.0)
+Clock tree timing engine global stage delay update for DC_HOLD:hold.late...
+Clock tree timing engine global stage delay update for DC_HOLD:hold.late done. (took cpu=0:00:00.0 real=0:00:00.0)
+
+Skew Group Structure:
+=====================
+
+---------------------------------------------------------------------
+Skew Group        Sources    Constrained Sinks    Unconstrained Sinks
+---------------------------------------------------------------------
+ACLK/FUNC_MODE       1             2159                     0
+ARESETN_tree         1                0                  2159
+---------------------------------------------------------------------
+
+Skew Group Summary:
+===================
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Timing Corner           Skew Group        ID Target    Min ID      Max ID      Avg ID    Std.Dev. ID    Skew Target Type    Skew Target    Skew     Skew window occupancy
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DC_SETUP:setup.early    ACLK/FUNC_MODE        -         0.473       0.500      0.492        0.005       ignored                  -         0.027              -
+                        ARESETN_tree          -        No paths    No paths    inf       inf            ignored                  -           -                -
+DC_SETUP:setup.late     ACLK/FUNC_MODE    none          0.481       0.509      0.500        0.005       auto computed        0.144         0.028    100% {0.481, 0.509}
+                        ARESETN_tree      none         No paths    No paths    inf       inf            auto computed        0.144           -                -
+DC_HOLD:hold.early      ACLK/FUNC_MODE        -         0.143       0.160      0.155        0.003       ignored                  -         0.017              -
+                        ARESETN_tree          -        No paths    No paths    inf       inf            ignored                  -           -                -
+DC_HOLD:hold.late       ACLK/FUNC_MODE        -         0.146       0.164      0.158        0.003       ignored                  -         0.018              -
+                        ARESETN_tree          -        No paths    No paths    inf       inf            ignored                  -           -                -
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* - indicates that target was not met.
+
+Skew Group Min/Max path pins:
+=============================
+
+------------------------------------------------------------------------------
+Timing Corner           Skew Group        Min ID    PathID    Max ID    PathID
+------------------------------------------------------------------------------
+DC_SETUP:setup.early    ACLK/FUNC_MODE    0.473       1       0.500       2
+-    min u_mac_array/u_mac2/u_wl3/w_s1_reg[22]/CK
+-    max u_orb/reg_mac2_reg[31]/CK
+DC_SETUP:setup.late     ACLK/FUNC_MODE    0.481       3       0.509       4
+-    min u_mac_array/u_mac2/u_wl3/w_s1_reg[23]/CK
+-    max u_orb/reg_mac2_reg[31]/CK
+DC_HOLD:hold.early      ACLK/FUNC_MODE    0.143       5       0.160       6
+-    min u_mac_array/u_mac2/u_wl3/w_s1_reg[23]/CK
+-    max u_mac_array/u_mac0/u_booth/pp6_reg[7]/CK
+DC_HOLD:hold.late       ACLK/FUNC_MODE    0.146       7       0.164       8
+-    min u_mac_array/u_mac2/u_wl3/w_s1_reg[22]/CK
+-    max u_mac_array/u_mac0/u_booth/pp6_reg[7]/CK
+------------------------------------------------------------------------------
+
+Timing for timing corner DC_SETUP:setup.early, min clock_path:
+==============================================================
+
+PathID    : 1
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac2/u_wl3/w_s1_reg[22]/CK
+Delay     : 0.473
+
+-----------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location          Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                     (um)              
+-- Clockpath trace ----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.021  (0.000,0.000)     -            2    
+CTS_ccl_a_buf_00093/A
+-     BUFX8     rise   0.000   0.000   0.150  -      (58.725,243.165)  301.890   -       
+CTS_ccl_a_buf_00093/Y
+-     BUFX8     rise   0.235   0.236   0.170  0.142  (55.245,243.165)    3.480     16    
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/A
+-     BUFX8     rise   0.002   0.237   0.170  -      (52.345,274.485)   34.220   -       
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/Y
+-     BUFX8     rise   0.234   0.471   0.155  0.139  (48.865,274.485)    3.480     58    
+u_mac_array/u_mac2/u_wl3/w_s1_reg[22]/CK
+-     DFFRHQX1  rise   0.002   0.473   0.155  -      (28.565,298.265)   44.080   -       
+-----------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_SETUP:setup.early, max clock_path:
+==============================================================
+
+PathID    : 2
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac2/u_acc/acc_reg_reg[25]/CK
+Delay     : 0.500
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.021  (0.000,0.000)      -            2    
+CTS_ccl_a_buf_00092/A
+-     BUFX8     rise   0.000   0.000   0.150  -      (58.725,121.075)   179.800   -       
+CTS_ccl_a_buf_00092/Y
+-     BUFX8     rise   0.238   0.238   0.169  0.142  (62.205,121.075)     3.480     17    
+CTS_ccl_a_buf_00003/A
+-     BUFX8     rise   0.002   0.240   0.169  -      (81.055,175.305)    73.080   -       
+CTS_ccl_a_buf_00003/Y
+-     BUFX8     rise   0.256   0.496   0.185  0.172  (77.575,175.305)     3.480     74    
+u_mac_array/u_mac2/u_acc/acc_reg_reg[25]/CK
+-     DFFRHQX1  rise   0.003   0.500   0.185  -      (108.025,240.845)   95.990   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_SETUP:setup.late, min clock_path:
+=============================================================
+
+PathID    : 3
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac2/u_wl3/w_s1_reg[23]/CK
+Delay     : 0.481
+
+-----------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location          Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                     (um)              
+-- Clockpath trace ----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.021  (0.000,0.000)     -            2    
+CTS_ccl_a_buf_00093/A
+-     BUFX8     rise   0.001   0.001   0.150  -      (58.725,243.165)  301.890   -       
+CTS_ccl_a_buf_00093/Y
+-     BUFX8     rise   0.235   0.236   0.170  0.142  (55.245,243.165)    3.480     16    
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/A
+-     BUFX8     rise   0.002   0.238   0.170  -      (52.345,274.485)   34.220   -       
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/Y
+-     BUFX8     rise   0.241   0.478   0.165  0.139  (48.865,274.485)    3.480     58    
+u_mac_array/u_mac2/u_wl3/w_s1_reg[23]/CK
+-     DFFRHQX1  rise   0.002   0.481   0.165  -      (35.815,290.435)   29.000   -       
+-----------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_SETUP:setup.late, max clock_path:
+=============================================================
+
+PathID    : 4
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac2/u_acc/acc_reg_reg[25]/CK
+Delay     : 0.509
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.021  (0.000,0.000)      -            2    
+CTS_ccl_a_buf_00092/A
+-     BUFX8     rise   0.001   0.001   0.150  -      (58.725,121.075)   179.800   -       
+CTS_ccl_a_buf_00092/Y
+-     BUFX8     rise   0.238   0.238   0.169  0.142  (62.205,121.075)     3.480     17    
+CTS_ccl_a_buf_00003/A
+-     BUFX8     rise   0.002   0.241   0.169  -      (81.055,175.305)    73.080   -       
+CTS_ccl_a_buf_00003/Y
+-     BUFX8     rise   0.265   0.505   0.198  0.172  (77.575,175.305)     3.480     74    
+u_mac_array/u_mac2/u_acc/acc_reg_reg[25]/CK
+-     DFFRHQX1  rise   0.004   0.509   0.198  -      (108.025,240.845)   95.990   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_HOLD:hold.early, min clock_path:
+============================================================
+
+PathID    : 5
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac2/u_wl3/w_s1_reg[23]/CK
+Delay     : 0.143
+
+-----------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location          Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                     (um)              
+-- Clockpath trace ----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.022  (0.000,0.000)     -            2    
+CTS_ccl_a_buf_00093/A
+-     BUFX8     rise   0.000   0.000   0.150  -      (58.725,243.165)  301.890   -       
+CTS_ccl_a_buf_00093/Y
+-     BUFX8     rise   0.073   0.073   0.061  0.147  (55.245,243.165)    3.480     16    
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/A
+-     BUFX8     rise   0.002   0.074   0.061  -      (52.345,274.485)   34.220   -       
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/Y
+-     BUFX8     rise   0.067   0.141   0.052  0.134  (48.865,274.485)    3.480     58    
+u_mac_array/u_mac2/u_wl3/w_s1_reg[23]/CK
+-     DFFRHQX1  rise   0.002   0.143   0.053  -      (35.815,290.435)   29.000   -       
+-----------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_HOLD:hold.early, max clock_path:
+============================================================
+
+PathID    : 6
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac0/u_booth/pp0_reg[4]/CK
+Delay     : 0.160
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.022  (0.000,0.000)      -            2    
+CTS_ccl_a_buf_00092/A
+-     BUFX8     rise   0.000   0.000   0.150  -      (58.725,121.075)   179.800   -       
+CTS_ccl_a_buf_00092/Y
+-     BUFX8     rise   0.076   0.076   0.060  0.148  (62.205,121.075)     3.480     17    
+u_mac_array/CTS_ccl_a_buf_00023/A
+-     BUFX8     rise   0.007   0.083   0.061  -      (243.165,110.635)  191.400   -       
+u_mac_array/CTS_ccl_a_buf_00023/Y
+-     BUFX8     rise   0.075   0.159   0.060  0.161  (246.645,110.635)    3.480     71    
+u_mac_array/u_mac0/u_booth/pp0_reg[4]/CK
+-     DFFRHQX1  rise   0.001   0.160   0.060  -      (231.275,73.805)    52.200   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_HOLD:hold.late, min clock_path:
+===========================================================
+
+PathID    : 7
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac2/u_wl3/w_s1_reg[22]/CK
+Delay     : 0.146
+
+-----------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location          Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                     (um)              
+-- Clockpath trace ----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.022  (0.000,0.000)     -            2    
+CTS_ccl_a_buf_00093/A
+-     BUFX8     rise   0.001   0.001   0.150  -      (58.725,243.165)  301.890   -       
+CTS_ccl_a_buf_00093/Y
+-     BUFX8     rise   0.073   0.073   0.061  0.147  (55.245,243.165)    3.480     16    
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/A
+-     BUFX8     rise   0.002   0.075   0.061  -      (52.345,274.485)   34.220   -       
+u_mac_array/u_mac2/CTS_ccl_a_buf_00019/Y
+-     BUFX8     rise   0.069   0.144   0.056  0.134  (48.865,274.485)    3.480     58    
+u_mac_array/u_mac2/u_wl3/w_s1_reg[22]/CK
+-     DFFRHQX1  rise   0.002   0.146   0.056  -      (28.565,298.265)   44.080   -       
+-----------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_HOLD:hold.late, max clock_path:
+===========================================================
+
+PathID    : 8
+Path type : skew group ACLK/FUNC_MODE (path 1 of 1)
+Start     : ACLK
+End       : u_mac_array/u_mac0/u_booth/pp0_reg[4]/CK
+Delay     : 0.164
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+ACLK
+-     -         rise   -       0.000   0.150  0.022  (0.000,0.000)      -            2    
+CTS_ccl_a_buf_00092/A
+-     BUFX8     rise   0.001   0.001   0.150  -      (58.725,121.075)   179.800   -       
+CTS_ccl_a_buf_00092/Y
+-     BUFX8     rise   0.076   0.076   0.060  0.148  (62.205,121.075)     3.480     17    
+u_mac_array/CTS_ccl_a_buf_00023/A
+-     BUFX8     rise   0.007   0.084   0.061  -      (243.165,110.635)  191.400   -       
+u_mac_array/CTS_ccl_a_buf_00023/Y
+-     BUFX8     rise   0.078   0.162   0.064  0.161  (246.645,110.635)    3.480     71    
+u_mac_array/u_mac0/u_booth/pp0_reg[4]/CK
+-     DFFRHQX1  rise   0.001   0.164   0.064  -      (231.275,73.805)    52.200   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner DC_SETUP:setup.early, min clock_path:
+==============================================================
+
+There are no paths in this timing group.
+
+Timing for timing corner DC_SETUP:setup.early, max clock_path:
+==============================================================
+
+There are no paths in this timing group.
+
+Timing for timing corner DC_SETUP:setup.late, min clock_path:
+=============================================================
+
+There are no paths in this timing group.
+
+Timing for timing corner DC_SETUP:setup.late, max clock_path:
+=============================================================
+
+There are no paths in this timing group.
+
+Timing for timing corner DC_HOLD:hold.early, min clock_path:
+============================================================
+
+There are no paths in this timing group.
+
+Timing for timing corner DC_HOLD:hold.early, max clock_path:
+============================================================
+
+There are no paths in this timing group.
+
+Timing for timing corner DC_HOLD:hold.late, min clock_path:
+===========================================================
+
+There are no paths in this timing group.
+
+Timing for timing corner DC_HOLD:hold.late, max clock_path:
+===========================================================
+
+There are no paths in this timing group.
+
+
