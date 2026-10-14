@@ -1,0 +1,120 @@
+# Version:1.0 MMMC View Definition File
+# Design : mac_system_top (MAC Accelerator IP)
+#
+# Structure matches your async_fifo default.view reference exactly (same
+# GPDK090 install) — library paths and naming convention kept as-written
+# there. Two things made MORE detailed than that reference, since you
+# asked for as much corner depth as reasonably applies here:
+#   1. create_rc_corner calls below now carry a QRC tech file + a
+#      temperature each, instead of being declared bare. Your reference
+#      left them empty — Innovus will accept that syntax, but an empty
+#      RC corner falls back to internal defaults rather than a real
+#      GPDK090-characterized extraction, which defeats the point of
+#      naming 3 separate corners in the first place.
+#   2. constraints_top.sdc -> constraints.sdc, matching the actual
+#      filename already written for this design in the Genus stage.
+#
+# ONE THING I DON'T HAVE A CONFIRMED PATH FOR: the QRC tech file below
+# (gpdk090.tch) is a NAME I'm inferring from the same directory pattern
+# every other reference file uses (/home/install/FOUNDRY/digital/90nm/
+# dig/<subdir>/...) — unlike the .lib and .lef paths, no reference you've
+# given me actually shows this file's real name or location. Find it
+# (likely under .../dig/qrc/ or .../dig/extraction/) and fix the 3 paths
+# below before running — everything else here should work as-is.
+
+###############################################################
+# LIBRARY SETS
+###############################################################
+
+create_library_set -name LIB_SS \
+    -timing {/home/install/FOUNDRY/digital/90nm/dig/lib/slow.lib}
+
+create_library_set -name LIB_FF \
+    -timing {/home/install/FOUNDRY/digital/90nm/dig/lib/fast.lib}
+
+create_library_set -name LIB_TT \
+    -timing {/home/install/FOUNDRY/digital/90nm/dig/lib/typical.lib}
+
+###############################################################
+# RC CORNERS
+###############################################################
+# -qx_tech_file: QRC technology file (path unconfirmed — see note above)
+# -T: extraction temperature, paired with the matching PVT corner below.
+# Standard-convention starting values (worst-case slow -> hot, best-case
+# fast -> cold, typical -> room temp) — cross-check against whatever
+# temperatures your specific .lib corners were actually characterized
+# at; these are reasonable defaults, not measured for this PDK.
+
+create_rc_corner -name RC_WORST \
+    -qx_tech_file /home/install/FOUNDRY/digital/90nm/dig/qx/gpdk090_9l.tch \
+    -T 125
+
+create_rc_corner -name RC_BEST \
+    -qx_tech_file /home/install/FOUNDRY/digital/90nm/dig/qx/gpdk090_9l.tch \
+    -T -40
+
+create_rc_corner -name RC_TYP \
+    -qx_tech_file /home/install/FOUNDRY/digital/90nm/dig/qx/gpdk090_9l.tch \
+    -T 25
+
+###############################################################
+# CONSTRAINT MODE
+###############################################################
+
+create_constraint_mode -name FUNC_MODE \
+    -sdc_files {constraints.sdc}
+
+###############################################################
+# DELAY CORNERS
+###############################################################
+# Same pairing logic as your reference: worst-case library + worst-case
+# RC for setup, best-case library + best-case RC for hold, typical/
+# typical for realistic power later.
+
+create_delay_corner -name DC_SETUP \
+    -library_set {LIB_SS} \
+    -rc_corner {RC_WORST}
+
+create_delay_corner -name DC_HOLD \
+    -library_set {LIB_FF} \
+    -rc_corner {RC_BEST}
+
+create_delay_corner -name DC_TYP \
+    -library_set {LIB_TT} \
+    -rc_corner {RC_TYP}
+
+###############################################################
+# ANALYSIS VIEWS
+###############################################################
+
+create_analysis_view -name SETUP_VIEW \
+    -constraint_mode {FUNC_MODE} \
+    -delay_corner {DC_SETUP}
+
+create_analysis_view -name HOLD_VIEW \
+    -constraint_mode {FUNC_MODE} \
+    -delay_corner {DC_HOLD}
+
+create_analysis_view -name TYP_VIEW \
+    -constraint_mode {FUNC_MODE} \
+    -delay_corner {DC_TYP}
+
+###############################################################
+# APPLY VIEWS
+###############################################################
+
+set_analysis_view -setup {SETUP_VIEW} -hold {HOLD_VIEW}
+# TYP_VIEW is intentionally not in set_analysis_view (setup/hold only) —
+# same reasoning as the Genus run.tcl: typical corner is for realistic
+# power numbers later (report_power -view TYP_VIEW), not timing signoff.
+
+###############################################################
+# OCV DERATES
+###############################################################
+# NOT set here. Moved into constraints.sdc instead — default.view's own
+# content runs as raw TCL the instant it's sourced during init_design,
+# too early for set_timing_derate (real error: "Design must be in memory
+# before running 'set_timing_derate'"). SDC content loaded via
+# -sdc_files gets applied once a view goes active on a loaded design,
+# not executed immediately, so it works correctly from there with no
+# manual step. See constraints.sdc's "OCV derating" section.

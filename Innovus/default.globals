@@ -1,0 +1,42 @@
+####################################################################
+# Innovus Global Initialization File
+# Design : mac_system_top (MAC Accelerator IP)
+# Adapted from the async_fifo default.global reference — same GPDK090
+# install, same LEF paths (kept exactly as-written there, your call to
+# edit). Only design-specific fields changed: init_top_cell, init_verilog.
+####################################################################
+
+set defHierChar {/}
+
+set init_top_cell mac_system_top
+
+set init_pwr_net {VDD}
+set init_gnd_net {VSS}
+
+set init_pwr_port VDD
+set init_gnd_port VSS
+
+set init_lef_file {
+ /home/install/FOUNDRY/analog/90nm/lef/gpdk090.lef
+ /home/install/FOUNDRY/digital/90nm/dig/lef/gsclib090_tech.lef
+ /home/install/FOUNDRY/digital/90nm/dig/lef/gsclib090_macro.lef
+ /home/install/FOUNDRY/digital/90nm/dig/lef/gsclib090_translated.lef
+}
+# gpdk090.lef added FIRST — it's the actual technology LEF (defines
+# Metal1 etc.), found via `find /home/install/FOUNDRY -iname
+# "*gpdk090*.lef"`. gsclib090_tech.lef's own header says it only defines
+# VIAs and depends on this file already being loaded — order matters,
+# per the IMPLF-26 error ("technology LEF file must be the first one").
+
+# Post-synthesis netlist from Genus (run.tcl writes this via
+# write_hdl > ${DESIGN_NAME}_netlist.v) — NOT the pre-synthesis RTL.
+set init_verilog {mac_system_top_netlist.v}
+
+set init_mmmc_file {default.view}
+
+set init_design_settop 1
+set init_design_uniquify 1
+
+set distributed_client_message_echo 1
+
+set eco_post_client_restore_command {update_timing ; write_eco_opt_db ;}
